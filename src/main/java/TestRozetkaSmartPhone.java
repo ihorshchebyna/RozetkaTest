@@ -1,23 +1,17 @@
-import actions.HomePageActions;
 import actions.ResultPageActions;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.support.PageFactory;
-import pageelements.NavigationBar;
-import pageelements.SearchResults;
+import pageobjects.HomePage;
 
 public class TestRozetkaSmartPhone extends BaseTest{
-    private HomePageActions homePageActions;
     private ResultPageActions resultPageActions;
-    private NavigationBar navigationBar;
-    private SearchResults searchResults;
+    private HomePage homePage;
 
     @Test
     public void testTopSellerCount() {
-        navigationBar = new NavigationBar(driver);
-        searchResults = new SearchResults(driver);
+        homePage = new HomePage(driver);
         resultPageActions = new ResultPageActions(driver);
 
-        navigationBar.openSmartPhoneSection(driver);
+        homePage.openSmartPhoneSection(driver);
         resultPageActions.checkTopSellers(driver);
     }
 }
